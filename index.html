@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StockPulse — Live Market Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <span class="logo-icon">▲</span>
+      <span class="logo-text">StockPulse</span>
+    </div>
+    <nav class="nav">
+      <a href="#" class="nav-link active">Dashboard</a>
+      <a href="#" class="nav-link">Portfolio</a>
+      <a href="#" class="nav-link">Markets</a>
+      <a href="#" class="nav-link">News</a>
+    </nav>
+    <div class="header-right">
+      <span class="live-badge">● LIVE</span>
+      <span id="current-time" class="clock"></span>
+    </div>
+  </header>
+
+  <!-- MARKET INDICES BAR -->
+  <div class="ticker-bar">
+    <div class="ticker-track" id="ticker-track"></div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- INDEX SUMMARY CARDS -->
+    <section class="index-cards" id="index-cards"></section>
+
+    <!-- CHART + WATCHLIST -->
+    <div class="middle-row">
+
+      <!-- CHART PANEL -->
+      <div class="card chart-card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title" id="chart-title">AAPL — Apple Inc.</h2>
+            <p class="card-sub" id="chart-price">$189.42 <span class="up">+2.14 (+1.14%)</span></p>
+          </div>
+          <div class="chart-tabs">
+            <button class="tab active" data-range="1D">1D</button>
+            <button class="tab" data-range="1W">1W</button>
+            <button class="tab" data-range="1M">1M</button>
+            <button class="tab" data-range="1Y">1Y</button>
+          </div>
+        </div>
+        <canvas id="stockChart" width="700" height="260"></canvas>
+      </div>
+
+      <!-- WATCHLIST -->
+      <div class="card watchlist-card">
+        <div class="card-header">
+          <h2 class="card-title">Watchlist</h2>
+          <button class="icon-btn" id="refresh-btn" title="Refresh">⟳</button>
+        </div>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="Search symbol…" />
+        </div>
+        <ul class="watchlist" id="watchlist"></ul>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM ROW: TOP GAINERS / LOSERS / NEWS -->
+    <div class="bottom-row">
+
+      <div class="card">
+        <h2 class="card-title section-title">🚀 Top Gainers</h2>
+        <ul class="mover-list" id="gainers-list"></ul>
+      </div>
+
+      <div class="card">
+        <h2 class="card-title section-title">📉 Top Losers</h2>
+        <ul class="mover-list" id="losers-list"></ul>
+      </div>
+
+      <div class="card news-card">
+        <h2 class="card-title section-title">📰 Market News</h2>
+        <ul class="news-list" id="news-list"></ul>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>StockPulse &copy; 2026 &nbsp;|&nbsp; Data is simulated for demo purposes only. Not financial advice.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
